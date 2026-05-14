@@ -1,0 +1,49 @@
+---
+
+import Layout from '@/layouts/Layout.astro';
+import HeroKeyLogo from '@/assets/images/hero-key-logo.webp'
+import HeroKeyBackground from '@/assets/images/hero-key-background.webp'
+import LogoVI from '@/assets/images/logo-vi.svg'
+import PlayButton from '@/assets/images/play-button.svg'
+import LogoCutted from '@/assets/images/logo-cutted.svg'
+
+---
+
+<Layout>
+	<section>
+	 <picture  id="hero-key" 
+	   class="  scale-125 block overflow-hidden fixed display-block top-0 left-0"
+	   >
+		<img
+			id="hero-key-logo"
+			src={HeroKeyLogo.src}
+			class="absolute w-full h-full object-cover"
+		/>
+		<img
+			id="hero-key-backround"
+			src={HeroKeyBackground.src}
+			class="w-full h-full object-cover"
+		/> 
+	 </picture>
+	</section> 
+
+	<div
+		class="fixed flex flex-col items-center justify-between h-screen p-16 px-17 w-full">
+		<header class="flex justify-between w-full">
+		 <LogoVI 
+		 	class="size-8 text-white hover:text-yellow-100 transition-colors duration-500 cursor-pointer"/>
+		 
+		</header>
+
+		<button class="absulute insert-0 m-auto cursor-pointer inline-block"> 
+				<PlayButton id="hero-play-button" class="text-white m-auto size-24 mt-8 rounded-full hover:scale-105 transition-transform"/>							  
+		</button>
+
+		<footer id="hero-footer" class="absolute bottom-7 m-auto flex items-center gap-3">
+			<LogoCutted class="text-white center- top-0 w-26 h-auto drop-shadow-[0_0_2px_rgba(255,255,255,0.5),0_0_8px_#000]" />
+			<span 
+			class="absolute uppercase tracking-[3px] text-[12.4px] whitespace-nowrap text-center size-5 font-medium text-shadow=
+			[0_0_2px_rgba(255,255,255,0.5),0_0_8px_#000] -translate-x-2/3"> VER EL TRÁILER</span>
+		</footer>
+	</div>
+</Layout> 
