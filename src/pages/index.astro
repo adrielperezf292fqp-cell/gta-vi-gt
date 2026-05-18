@@ -10,33 +10,35 @@ import LogoCutted from '@/assets/images/logo-cutted.svg'
 ---
 
 <Layout>
-	<section>
-	 <picture  id="hero-key" 
-	   class="  scale-125 block overflow-hidden fixed display-block top-0 left-0"
-	   >
-		<img
-			id="hero-key-logo"
-			src={HeroKeyLogo.src}
-			class="absolute w-full h-full object-cover"
-		/>
-		<img
-			id="hero-key-backround"
-			src={HeroKeyBackground.src}
-			class="w-full h-full object-cover"
-		/> 
-	 </picture>
-	</section> 
+	<div id="logo-mask" class="ficed top-0 w-full h-screen">
+	    <section>
+	 		<picture  id="hero-key" 
+	   		class="  scale-127 block overflow-hidden fixed display-block top-0 left-0"
+	   		>
+				<img
+					id="hero-key-logo"
+					src={HeroKeyLogo.src}
+					class="absolute w-full h-full object-cover"
+				/>
+				<img
+					id="hero-key-backround"
+					src={HeroKeyBackground.src}
+					class="w-full h-full object-cover"
+				/> 
+	 		</picture>
+		</section> 
+	</div>
 
 	<div
-		class="fixed flex flex-col items-center justify-between h-screen p-16 px-17 w-full">
+		class="fixed flex flex-col items-center justify-between h-screen p-15 px-18 w-full">
 		<header class="flex justify-between w-full">
 		 <LogoVI 
-		 	class="size-8 text-white hover:text-yellow-100 transition-colors duration-500 cursor-pointer"/>
+		 	class="size-9.5 text-white hover:text-yellow-100 transition-colors duration-500 cursor-pointer"/>
 		 
 		</header>
 
 		<button class="absulute insert-0 m-auto cursor-pointer inline-block"> 
-				<PlayButton id="hero-play-button" class="text-white m-auto size-24 mt-8 rounded-full hover:scale-105 transition-transform"/>							  
+				<PlayButton id="hero-play-button" class="text-white m-auto size-22 mt-3 rounded-full hover:scale-105 transition-transform"/>							  
 		</button>
 
 		<footer id="hero-footer" class="absolute bottom-7 m-auto flex items-center gap-3">
@@ -46,4 +48,45 @@ import LogoCutted from '@/assets/images/logo-cutted.svg'
 			[0_0_2px_rgba(255,255,255,0.5),0_0_8px_#000] -translate-x-2/3"> VER EL TRÁILER</span>
 		</footer>
 	</div>
+	<div class="h-[200vh]"></div>
 </Layout> 
+
+<style>
+	#logo-mask {
+		background: white;
+		mask-image:url("../assets/logo-stack.svg");
+		mask-position: center 20%;
+		mask-repeat: no-repeat;
+		mask-size: clamp(5000vh,3500%, 0vh)
+	}
+</style>
+
+
+<script>
+	import { gsap } from "gsap"
+	
+	import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+	gsap.registerPlugin(ScrollTrigger)
+
+	const tl= gsap.timeline({
+		ease: "power2.out",
+		scrollTrigger: {
+			scrub: 1
+		}
+	})
+
+	tl
+	 .to("#hero-key",{ duration: 1, scale: 1})
+	 .to("#hero-key-logo", { opacity: 0},"<") 
+	 .to ("#hero-footer", { opacity: 0}, "<")
+	 .to ("#hero-play-button", { opacity: 0}, "<")
+	 .to(
+		"#logo-mask",
+		 {
+			maskSize: "clamp(20vh, 25%, 30vh)",
+		},
+		0.2
+		)
+	 
+</script>

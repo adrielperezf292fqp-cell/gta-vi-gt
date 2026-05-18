@@ -19,21 +19,26 @@ import KeepScrolling from '@/assets/images/keep-scrolling.svg'
 <style is:global>
 	
 @import "tailwindcss";
-	@theme{
-		--font-sans: "GTA", system-ui, sans-serif;
-		--font-narrow: "GTANarrow", system-ui, sans-serif;
-		
-		---animate-bounce-pulse: bounce 2s ease-in-out infinite;
+
+	.animate-bounce-pulse {
+		animation: bounce-pulse 2s ease-in-out infinite;
 	}
 
 	@keyframes bounce-pulse {
-		0%, 100% {
+		0% {
 			transform: translateY(0);
-			opacity: 1;
+			scale: 0.8;
+			opacity: 0.8;
 		}
 		50% {
-			transform: translateY(-20px);
-			opacity: 0.5;
+			transform: translateY(-5px);
+			scale: 1;
+			opacity: 1;
+		}
+		100% {
+			transform: translateY(0);
+			scale: 0.8;
+			opacity: 0.8;
 		}
 	}
 
