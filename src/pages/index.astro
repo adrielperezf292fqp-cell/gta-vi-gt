@@ -6,11 +6,15 @@ import HeroKeyBackground from '@/assets/images/hero-key-background.webp'
 import LogoVI from '@/assets/images/logo-vi.svg'
 import PlayButton from '@/assets/images/play-button.svg'
 import LogoCutted from '@/assets/images/logo-cutted.svg'
+import FullLogo from '@/assets/images/full-logo.webp'
+import PS5 from '@/assets/images/ps5.svg'
+import Xbox from '@/assets/images/xbox.svg'	
+
 
 ---
 
 <Layout>
-	<div id="logo-mask" class="fixed top-0 w-full h-screen">
+	<div id="logo-mask" class="fixed mt-5 top-0 w-full h-screen">
 	    <section>
 	 		<picture  id="hero-key" 
 	   		class="  scale-127 block overflow-hidden fixed display-block top-0 left-0"
@@ -28,7 +32,59 @@ import LogoCutted from '@/assets/images/logo-cutted.svg'
 	 		</picture>
 		</section> 
 	</div>
+	
+	<div
+	id="release-screen"
+	class="fixed inset-0 opacity-0 flex flex-col items-center justify-center -translate-y-[8vh] bg-[#060507]"
+>
 
+		<!-- Logo completo -->
+		<img
+			id="full-logo"
+			src={FullLogo.src}
+			class="w-[25vh] h-auto"
+		/>
+
+		<!-- Texto -->
+		<div
+			id="release-text"
+			class="mt-4 text-center  uppercase ext-5xl md:text-7xl
+           bg-gradient-to-br from-[#ce0473] via-[#f3b685] to-[#a849a8] 
+           bg-clip-text text-transparent selective-text"""
+		>	
+			<p class="text-4xl font-bold">
+				Disponible
+			</p>
+
+
+			<p class="text-4xl font-bold ">
+				EL 19 DE NOVIEMBRE
+			</p>
+
+			<p class="text-4xl font-bold">
+				DE 2026
+			</p>
+
+		</div>
+
+		<!-- Plataformas -->
+		<div class="flex gap-6 mt-8">
+
+			<img
+				src={PS5.src}
+				class="h-7 text-white"
+			/>
+
+			<img
+				src={Xbox.src}
+				class="h-7 text-white"
+			/>
+
+		</div>
+
+	</div>
+  
+</div>
 	<div
 		class="fixed flex flex-col items-center justify-between h-screen p-15 px-18 w-full">
 		<header class="flex justify-between w-full">
@@ -37,7 +93,7 @@ import LogoCutted from '@/assets/images/logo-cutted.svg'
 		 
 		</header>
 
-		<button class="absulute insert-0 m-auto cursor-pointer inline-block"> 
+		<button class="absolute inset-0 m-auto cursor-pointer inline-block"> 
 				<PlayButton id="hero-play-button" class="text-white m-auto size-22 mt-3 rounded-full hover:scale-105 transition-transform"/>							  
 		</button>
 
@@ -84,9 +140,26 @@ import LogoCutted from '@/assets/images/logo-cutted.svg'
 	 .to(
 		"#logo-mask",
 		 {
-			maskSize: "clamp(20vh, 25%, 30vh)",
+			maskSize: "clamp(20vh, 25%, 10vh)",
 		},
-		0.2
+		0.15
 		)
-	 
+	 .to(
+		"#hero-key",
+		{
+			opacity: 0,
+			duration: 0.2,
+		},
+		0.4
+		)
+	 .to("#release-screen",{
+    	opacity:1
+		},0.45)
+
+	
+	.from("#full-logo",{
+    	scale:0.9,
+   		opacity:0,
+    	duration:0.5
+		},"<")
 </script>
