@@ -1,5 +1,4 @@
 ---
-
 import Layout from '@/layouts/Layout.astro';
 import HeroKeyLogo from '@/assets/images/hero-key-logo.webp'
 import HeroKeyBackground from '@/assets/images/hero-key-background.webp'
@@ -8,37 +7,48 @@ import PlayButton from '@/assets/images/play-button.svg'
 import LogoCutted from '@/assets/images/logo-cutted.svg'
 import FullLogo from '@/assets/images/full-logo.webp'
 import PS5 from '@/assets/images/ps5.svg'
-import Xbox from '@/assets/images/xbox.svg'	
-
-
+import Xbox from '@/assets/images/xbox.svg'
 ---
 
 <Layout>
-	<div id="logo-mask" class="fixed mt-5 top-0 w-full h-screen">
+
+	<!-- Hero -->
+	<div id="logo-mask" class="fixed  mt-5 top-0 w-full h-screen">
+
 	    <section>
-	 		<picture  id="hero-key" 
-	   		class="  scale-127 block overflow-hidden fixed display-block top-0 left-0"
+
+	 		<picture 
+				
+				id="hero-key"  
+	   			class="scale-127 block overflow-hidden fixed display-block top-0 left-0"
 	   		>
+				
 				<img
 					id="hero-key-logo"
 					src={HeroKeyLogo.src}
 					class="absolute w-full h-full object-cover"
 				/>
+
 				<img
 					id="hero-key-backround"
 					src={HeroKeyBackground.src}
 					class="w-full h-full object-cover"
-				/> 
-	 		</picture>
-		</section> 
-	</div>
-	
-	<div
-	id="release-screen"
-	class="fixed inset-0 opacity-0 flex flex-col items-center justify-center -translate-y-[8vh] bg-[#060507]"
->
+				/>
 
-		<!-- Logo completo -->
+	 		</picture>
+
+		</section>
+
+	</div>
+
+
+	<!-- bloque 2 -->
+	<div
+		id="release-screen"
+		class="fixed mt-29 inset-0 opacity-0 flex flex-col items-center justify-center -translate-y-[8vh] bg-[#060507]"
+	>
+
+		<!-- Logo -->
 		<img
 			id="full-logo"
 			src={FullLogo.src}
@@ -47,63 +57,106 @@ import Xbox from '@/assets/images/xbox.svg'
 
 		<!-- Texto -->
 		<div
-			id="release-text"
-			class="mt-4 text-center  uppercase ext-5xl md:text-7xl
-           bg-gradient-to-br from-[#ce0473] via-[#f3b685] to-[#a849a8] 
-           bg-clip-text text-transparent selective-text"""
-		>	
-			<p class="text-4xl font-bold">
+			id="gta-text"
+			class="mt-4 text-center uppercase bg-gradient-to-br from-[#ce0473] via-[#f3b685] to-[#a849a8] 
+			bg-clip-text text-transparent 
+			selective-text"
+		>
+
+			<p class="text-7xl font-bold">
 				Disponible
 			</p>
 
-
-			<p class="text-4xl font-bold ">
+			<p class="text-7xl font-bold">
 				EL 19 DE NOVIEMBRE
 			</p>
 
-			<p class="text-4xl font-bold">
+			<p class="text-7xl font-bold">
 				DE 2026
 			</p>
 
 		</div>
 
 		<!-- Plataformas -->
-		<div class="flex gap-6 mt-8">
+		<div class="flex gap-6 mt-8 h-7 
+			items-center justify-center">
 
 			<img
 				src={PS5.src}
-				class="h-7 text-white"
+				alt="PS5"
+				class="h-7 w-22 object-contain invert brightness-0"
 			/>
 
 			<img
 				src={Xbox.src}
-				class="h-7 text-white"
+				alt="Xbox"
+				class="h-7 w-22 object-contain invert brightness-0"
 			/>
 
 		</div>
 
 	</div>
-  
-</div>
+
+
 	<div
-		class="fixed flex flex-col items-center justify-between h-screen p-15 px-18 w-full">
+		class="fixed flex flex-col items-center 
+		justify-between h-screen p-15 px-18 w-full"
+	>
+
+		<!-- Header -->
 		<header class="flex justify-between w-full">
-		 <LogoVI 
-		 	class="size-9.5 text-white hover:text-yellow-100 transition-colors duration-500 cursor-pointer"/>
-		 
+
+			<LogoVI
+		 		class="size-9.5 text-white hover:text-yellow-100 
+				transition-colors duration-500 
+				cursor-pointer"
+			/>
+
 		</header>
 
-		<button class="absolute inset-0 m-auto cursor-pointer inline-block"> 
-				<PlayButton id="hero-play-button" class="text-white m-auto size-22 mt-3 rounded-full hover:scale-105 transition-transform"/>							  
+
+		<!-- Botón -->
+		<button class="absolute inset-0 m-auto cursor-pointer inline-block">
+
+			<PlayButton
+				id="hero-play-button"
+				class="text-white m-auto size-22 mt-3 rounded-full 
+				hover:scale-105 	
+				transition-transform"
+			/>
+
 		</button>
 
-		<footer id="hero-footer" class="absolute bottom-7 m-auto flex items-center gap-3">
-			<LogoCutted class="text-white center- top-0 w-26 h-auto drop-shadow-[0_0_2px_rgba(255,255,255,0.5),0_0_8px_#000]" />
-			<span 
-			class="absolute uppercase tracking-[3px] text-[12.4px] whitespace-nowrap text-center size-5 font-medium text-shadow=
-			[0_0_2px_rgba(255,255,255,0.5),0_0_8px_#000] -translate-x-2/3"> VER EL TRÁILER</span>
+
+		<!-- footer flechita -->
+		<footer
+			id="hero-footer"
+			class="absolute bottom-7 m-auto flex items-center gap-3"
+		>
+			<!-- logo V cortado -->
+			<LogoCutted
+				class="text-white center-top-0 w-26 h-auto drop-shadow-[0_0_2px_rgba(255,255,255,0.5),0_0_8px_#000]"
+			/>
+
+			<span
+				class="absolute uppercase tracking-[3px] text-[12.4px] 
+				whitespace-nowrap text-center size-5 
+				font-medium text-shadow=
+				[0_0_2px_rgba(255,255,255,0.5),0_0_8px_#000] 
+				-translate-x-2/3"
+			>
+				VER EL TRÁILER
+			</span>
+
 		</footer>
-	</div>
+
+
+
+</Layout>
+
+<div class="h-200vh]"></div>
+
+</Layout>
 	<div class="h-[200vh]"></div>
 </Layout> 
 
@@ -119,7 +172,8 @@ import Xbox from '@/assets/images/xbox.svg'
 
 
 <script>
-	import { gsap } from "gsap"
+	import { safeDecode } from "astro:schema"
+import { gsap } from "gsap"
 	
 	import { ScrollTrigger } from "gsap/ScrollTrigger"
 
@@ -138,28 +192,36 @@ import Xbox from '@/assets/images/xbox.svg'
 	 .to ("#hero-footer", { opacity: 0}, "<")
 	 .to ("#hero-play-button", { opacity: 0}, "<")
 	 .to(
-		"#logo-mask",
-		 {
-			maskSize: "clamp(20vh, 25%, 10vh)",
-		},
-		0.15
-		)
-	 .to(
-		"#hero-key",
-		{
-			opacity: 0,
-			duration: 0.2,
-		},
-		0.4
-		)
-	 .to("#release-screen",{
-    	opacity:1
-		},0.45)
+        "#logo-mask",
+        {
+            maskSize: "clamp(20vh, 25%, 26vh)",
+			duration: 0.9,
+        },
+        0.15
+     )
+     .to(
+        "#hero-key",
+        {
+            opacity: 0,
+            duration: 0.2,
+        },
+        0.3
+     )
+     .to("#release-screen", {
+        opacity: 1,
+        startAt: { 
+            clipPath: "circle(0% at 50% 100%)",
+            webkitClipPath: "circle(0% at 50% 100%)"
+        }, 
+        clipPath: "circle(150% at 50% 100%)",
+        webkitClipPath: "circle(150% at 50% 100%)",
+        duration: 1.5,
+        ease: "power2.inOut"
+     }, "0.4")
+     .from("#full-logo", {
+        scale: 0.9,
+        opacity: 0,
+        duration: 0.1
+     }, "<")
 
-	
-	.from("#full-logo",{
-    	scale:0.9,
-   		opacity:0,
-    	duration:0.5
-		},"<")
 </script>
